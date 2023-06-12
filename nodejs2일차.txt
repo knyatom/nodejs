@@ -1,59 +1,68 @@
+nodejs 2일차
 
-nodejs
-node module git ignore
+nodejs설치안되신분들은
+nodejs.org에 접속해서 LTS버젼을 다운받고 설치한다.
+개인폴더에 nodejs 폴더를 생성하고, vscode로 연다
+vscode -> terminal에서 node -v 입력하고 버젼정보가 나와야 한다.
+
+prinf()
+
+리스너, 콜백함수
+addEventListener('click',function(){ 
+
+});
+
+addEventListener()
+
+$().a
+
+cls : clear screen
+
+윈도우탐색기
+내컴퓨터에서 우클릭
+고급시스템설정
+
+윈도우키+R
+sysdm.cpl 
+
+calc.js
+test4.js
+
+calc2.js
+
+npm install nconf
+npm i conf
 npm 
 yarn
-패키지 모듈 설치
-node_modules/
+yarn add nconf
+npm install -g yarn
 
-https://github.com/knyatom/nodejs.git
-
-node.js 검색
-자바-서버 사이드 언어 ssl
-자바스크립트 = csl 클라이언트 사이드 언어
-노드제이에스  node.js
-
-nodejs(강좌)
-자바스크립트강좌->nodejs기본
-제이쿼리강좌-> nodejs기본
+쿼드코어
 
 
-LTS 
+수업자료(교안)
+Todolist 앱 만들기
+(자바스크립트예제)
 
-node -v
-terminal
+My -> 본인이름
+이순신의 ToDo App
 
 
 
-'node' 용어가 cmdlet, 함수, 스크립트 파일 또는 실행할 수 있는 프로그램 이름으로 인식되지 않습니다.
- 이름이 정확한지 확인하고 경로가 포함된 경우 경로가 올바른지 검증한 다음 다시 시도하십시오.
-
-ctrl+shift+p 
-
-terminal:select default profile
-command prompt
-다시 vs-code 껏다 실행
-node -v -> version 이 떠야 한다.
 
 
-node.js 프로젝트 초기화
-npm init
 
-package.json
 
-node test.js
 
-.gitignore
 
-nodejs 터미널 글자키우기
-settings.json에 가서 
-"terminal.integrated.fontSize": 20
 
-npm install request
 
-npmjs.org
 
-nodejs request XXXX
-npm request
+
+
+
+
+
+
 
 
