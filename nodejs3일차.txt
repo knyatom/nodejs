@@ -1,0 +1,25 @@
+nodejs 3일차
+
+내부모듈
+ http, fs
+외부모듈
+  express
+ bodyparser
+ cookiparser
+
+ 주소창-> board.js?name=kim&age=20&job=it
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
