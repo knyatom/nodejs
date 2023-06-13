@@ -11,7 +11,7 @@
 
 // 동기식 readFileSync
 var fs = require("fs");
-const { writeFile } = require("fs/promises");
+//const { writeFile } = require("fs/promises");
 // var data = fs.readFileSync("test.txt", "utf-8");
 // console.log(data);
 
@@ -126,7 +126,12 @@ infile.on("end",function(){
 //  새 디렉토리 만들고 삭제하기
 fs.mkdir("./새폴더",0777, function(err){
  console.log("새폴더 생성됨");
-})
+});
+fs.rmdir('./새폴더', function(err) {
+ if (err) throw err;
+ console.log('docs 폴더를 삭제했습니다.');
+});
+
 
 
 
