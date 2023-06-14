@@ -55,9 +55,33 @@ app.del()
 app.all()
 
 
+var router=express.Router();
+router.route()
 
+127.0.0.1
+localhost
+우리집, 내집
 
+서버를 수정했을때 다시껏다 켜지 않게 하기
+node.js 무중단서비스
 
+npm install pm2 -g
+pm2 start server2.js --watch
+
+서버데몬(daemon)
+
+set-ExecutionPolicy RemoteSigned
+regsvr32.exe msctf.dll 
+set-ExecutionPolicy -Scope CurrentUser
+
+pm2 kill
+
+uri mapping
+라우트처리
+
+http://127.0.0.1:52273 -> index.html
+
+http://127.0.0.1:52273/food
 
 
 

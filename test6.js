@@ -1,50 +1,28 @@
-// Express 기본 모듈 불러오기
-var express = require('express')
-  , http = require('http')
-  , path = require('path');
+// 쿠키설정하기(예제)
 
-// Express의 미들웨어 불러오기
-var bodyParser = require('body-parser')
-  , cookieParser = require('cookie-parser')
-  , static = require('serve-static')
-  
-
-
-
-// 익스프레스 객체 생성
+var http = require('http');
+var express = require("express");
 var app = express();
+app.use(express.static('public'));
+app.use(app.router);
 
-// 기본 속성 설정
-app.set('port', process.env.PORT || 3000);
+var cookieParser = require('cookie-parser');
 
-// body-parser를 이용해 application/x-www-form-urlencoded 파싱
-app.use(bodyParser.urlencoded({ extended: false }))
-
-// body-parser를 이용해 application/json 파싱
-app.use(bodyParser.json())
-
-app.use('/public', static(path.join(__dirname, 'public')));
-
-// cookie-parser 설정
 app.use(cookieParser());
 
-
-// 라우터 사용하여 라우팅 함수 등록
-var router = express.Router();
-
-router.route('/process/showCookie').get(function(req, res) {
+app.get('/process/showCookie' ,function(req, res) {
  console.log('/process/showCookie 호출됨.');
 
- res.send(req.cookies);
+ res.send(req.cookies); 
 });
 
-router.route('/process/setUserCookie').get(function(req, res) {
+app.get('/process/setUserCookie' ,function(req, res) {
  console.log('/process/setUserCookie 호출됨.');
 
  // 쿠키 설정
  res.cookie('user', {
-  id: 'mike',
-  name: '소녀시대',
+  id: 'admin',
+  name: 'welcome',
   authorized: true
  });
  
@@ -52,13 +30,10 @@ router.route('/process/setUserCookie').get(function(req, res) {
  res.redirect('/process/showCookie');
 });
 
-app.use('/', router);
 
 
 
-
-
-// Express 서버 시작
-http.createServer(app).listen(app.get('port'), function(){
-  console.log('Express server listening on port ' + app.get('port'));
+http.createServer(app).listen(52273, function () {
+  console.log("Server Running at http://127.0.0.1:52273");
 });
+
