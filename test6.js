@@ -1,24 +1,74 @@
-// npm install cheerio
-// npm install request 명령어를 미리 실행해주세요.
+// Express 기본 모듈 불러오기
+var express = require('express')
+  , http = require('http')
+  , path = require('path');
 
-// 모듈을 추출합니다.
-const request = require('request');
-const cheerio = require('cheerio');
-// request 모듈을 사용합니다.
-const url = 'http://www.hanbit.co.kr/store/books/new_book_list.html';
-request(url, (error, response, body) => {
-    // cheerio 모듈을 사용합니다.
-    const $ = cheerio.load(body);
-    console.log($);
-    // 데이터를 추출합니다.
-    $('.view_box').each((index, element) => {
-        // 변수를 선언합니다.
-        const title = $(element).find('.book_tit').text().trim();
-        let writer = $(element).find('.book_writer').text().trim();
-        writer = writer.split(',').map((item) => item.trim());
-        // 출력합니다.
-     //   console.log(title)
-      //  console.log(writer);
-       // console.log();
-    });
+// Express의 미들웨어 불러오기
+var bodyParser = require('body-parser')
+  , cookieParser = require('cookie-parser')
+  , static = require('serve-static')
+  , errorHandler = require('errorhandler');
+
+// 에러 핸들러 모듈 사용
+var expressErrorHandler = require('express-error-handler');
+
+
+// 익스프레스 객체 생성
+var app = express();
+
+// 기본 속성 설정
+app.set('port', process.env.PORT || 3000);
+
+// body-parser를 이용해 application/x-www-form-urlencoded 파싱
+app.use(bodyParser.urlencoded({ extended: false }))
+
+// body-parser를 이용해 application/json 파싱
+app.use(bodyParser.json())
+
+app.use('/public', static(path.join(__dirname, 'public')));
+
+// cookie-parser 설정
+app.use(cookieParser());
+
+
+// 라우터 사용하여 라우팅 함수 등록
+var router = express.Router();
+
+router.route('/process/showCookie').get(function(req, res) {
+ console.log('/process/showCookie 호출됨.');
+
+ res.send(req.cookies);
+});
+
+router.route('/process/setUserCookie').get(function(req, res) {
+ console.log('/process/setUserCookie 호출됨.');
+
+ // 쿠키 설정
+ res.cookie('user', {
+  id: 'mike',
+  name: '소녀시대',
+  authorized: true
+ });
+ 
+ // redirect로 응답
+ res.redirect('/process/showCookie');
+});
+
+app.use('/', router);
+
+
+// 404 에러 페이지 처리
+var errorHandler = expressErrorHandler({
+    static: {
+      '404': './public/404.html'
+    }
+});
+
+app.use( expressErrorHandler.httpError(404) );
+app.use( errorHandler );
+
+
+// Express 서버 시작
+http.createServer(app).listen(app.get('port'), function(){
+  console.log('Express server listening on port ' + app.get('port'));
 });
