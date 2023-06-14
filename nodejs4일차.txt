@@ -1,5 +1,49 @@
 nodejs 4일차
 
+jquery강좌->103번 게시판 참조
+node.js 기본
+자바스크립트강좌->68번게시판 참조
+
+server.js
+127.0.0.1:1337
+              포트
+               0~65536         80, 24 ,110
+               8080  8088 
+                 1332, 
+
+Ctrl+C 
+
+
+
+https://expressjs.com/ko/
+
+npm install express@3.4.7
+
+미들웨어
+npm install express
+
+express
+앱 프레임워크
+
+http://192.168.0.47:1337
+
+정적파일
+-변화하지 않는 파일
+- html, css, javascript 
+- 아무리 요청해도 변하지 않는 파일
+- 웹서버
+
+
+동적파일
+ dynamic web service
+WAS(톰캣), 미들웨어,
+언어 : jsp, java
+
+
+
+
+
+
 
 
 
