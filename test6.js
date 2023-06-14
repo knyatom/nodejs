@@ -7,10 +7,8 @@ var express = require('express')
 var bodyParser = require('body-parser')
   , cookieParser = require('cookie-parser')
   , static = require('serve-static')
-  , errorHandler = require('errorhandler');
+  
 
-// 에러 핸들러 모듈 사용
-var expressErrorHandler = require('express-error-handler');
 
 
 // 익스프레스 객체 생성
@@ -57,15 +55,7 @@ router.route('/process/setUserCookie').get(function(req, res) {
 app.use('/', router);
 
 
-// 404 에러 페이지 처리
-var errorHandler = expressErrorHandler({
-    static: {
-      '404': './public/404.html'
-    }
-});
 
-app.use( expressErrorHandler.httpError(404) );
-app.use( errorHandler );
 
 
 // Express 서버 시작

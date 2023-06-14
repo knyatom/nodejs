@@ -36,12 +36,23 @@ http://192.168.0.47:1337
 
 동적파일
  dynamic web service
-WAS(톰캣), 미들웨어,
+WAS(톰캣), 미들웨어, 와스서버
 언어 : jsp, java
+실시간검색어-동적파일
 
 
+public/index.html
+http://127.0.0.1:52273/index.html
+main.html
+http://127.0.0.1:52273/main.html
 
-
+라우터
+경로지정
+app.get()
+app.post()
+app.put()
+app.del()
+app.all()
 
 
 
