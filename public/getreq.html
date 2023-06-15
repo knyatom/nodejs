@@ -7,15 +7,19 @@
  <script src="http://code.jquery.com/jquery-latest.js"></script>
 </head>
 <body>
- <button id="get">GET</button> <button id="post">POST</button>
- <button id="put">PUT</button> <button id="delete">DELETE</button>
+ <button id="get">GET</button>
+ <button id="post">POST</button>
+ <button id="put">PUT</button>
+ <button id="delete">DELETE</button>
  <hr>
  <h1> input</h1>
  이름 :<input id="name"> <br>
  가격 :<input id="price">
  <h1> output</h1>
- <textarea id="output" disabled cols="40" rows="5"></textarea>
+ <textarea id="output" disabled cols="40" rows="25">  
+ </textarea>
  <script>
+  // 전체조회
   $('#get').click(function(){
    $.ajax({
     url:'/products',
@@ -24,9 +28,24 @@
     success:function(data){
      $('#output').val(data);
     }
-   })
-
+   });
   });
+  // 데이터추가
+  $('#post').click(function(){
+   $.ajax({
+    url:'/products',
+    type:'post',
+    dataType:'text',
+    data:{
+     name:$('#name').val(),
+     price:$('#price').val()
+    },
+    success:function(data){
+     $('#output').val(data);
+    }
+   });
+  });
+
 
  </script>
 </body>

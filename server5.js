@@ -26,13 +26,16 @@ var items = [
   { name: '커피', price: 500 }
 ];
 
-
 // 전체조회
-app.get('/products', (req, res) => {
-  //res.send(items);
-  // 폼에서 입력한 폼데이터값을 받아서 변수에 저장
-  var name = req.params.name;
-  var price = req.params.price;
+app.get('/products',(req,res)=>{
+ res.send(items);
+});
+
+app.post('/products', (req, res) => {
+   // 폼에서 입력한 폼데이터값을 받아서 변수에 저장
+  var name = req.param('name');
+  var price = req.param('price');
+  console.log(name,price)
   var item = {
     name: name,
     price: price
