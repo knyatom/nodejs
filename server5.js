@@ -27,24 +27,25 @@ var items = [
 ];
 
 // 전체조회
-app.get('/products',(req,res)=>{
- res.send(items);
+app.get('/products', (req, res) => {
+  res.send(items);
 });
 
 app.post('/products', (req, res) => {
-   // 폼에서 입력한 폼데이터값을 받아서 변수에 저장
-  var name = req.param('name');
+  // 폼에서 입력한 폼데이터값을 받아서 변수에 저장
+  //var name = req.param('name');
+  var name = req.body.name || req.query.name;
   var price = req.param('price');
-  console.log(name,price)
+  console.log(name, price)
   var item = {
     name: name,
     price: price
   }
   items.push(item);
   res.send({
-    message:"데이트를 추가했습니다",
-    data:item
-  })
+    message: "데이트를 추가했습니다",
+    data: item
+  });
 });
 
 // 개별데이터조회
@@ -61,8 +62,43 @@ app.get('/products/:id', (req, res) => {
   }
 });
 
+// 개별데이터수정
+app.put("/products/:id", function (req, res) {
+  var id = Number(req.param('id'));
+  var name = req.body.name;
+  var price = req.body.price;
 
+  if (items[id]) {
+    items[id].name = name;
+    items[id].price = price;
 
+    res.send({
+      message: "데이터를 수정했습니다",
+      data: items[id]
+    });
+  }else{
+    res.send({
+      error:"존재하지 않는 데이터입니다"      
+    })
+  }
+});
+
+// 삭제하기
+app.del('/products/:id',function(req,res){
+  var id = Number(req.param('id'));
+  if(isNaN(id)){
+    res.send({error:"숫자를 입력하세요"})
+  }else if(items[id]){
+    items.splice(id,1);
+    res.send({
+      message:"데이터를 삭제했습니다."
+    });
+  }else{
+    res.send({
+      error:"존재하지 않는 데이터입니다"      
+    })
+  }    
+});
 
 
 // 웹 서버를 실행합니다.
