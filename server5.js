@@ -7,39 +7,63 @@ app.use(express.static('public'));
 app.use(express.bodyParser());
 app.use(app.router);
 
-app.post('/user', function(request, response) {
-    var name = request.param('user_name');
-    //var name =request.query.user_name;
-    response.send(name);
+app.post('/user', function (request, response) {
+  var name = request.param('user_name');
+  //var name =request.query.user_name;
+  response.send(name);
 });
 
-app.get("/parameter",function(request,response){
- var name=request.query.name;
- var region=request.query.region;
+app.get("/parameter", function (request, response) {
+  var name = request.query.name;
+  var region = request.query.region;
 
- response.send(`<h1>${name} : ${region}</h1>`);
+  response.send(`<h1>${name} : ${region}</h1>`);
 });
 
-var items=[
- {name:'우유', price:200},
- {name:'홍차', price:300},
- {name:'커피', price:500} 
+var items = [
+  { name: '우유', price: 200 },
+  { name: '홍차', price: 300 },
+  { name: '커피', price: 500 }
 ];
 
-app.all('/data.html',function(req,response){
-  var out="";
-  items.forEach(function(item){
-   out+="<div>";
-   out+="<span>"+item.name+ ":" + item.price+"원</span>";
-   out+="</div>";
-  });
-  response.send(out);
+
+// 전체조회
+app.get('/products', (req, res) => {
+  //res.send(items);
+  // 폼에서 입력한 폼데이터값을 받아서 변수에 저장
+  var name = req.params.name;
+  var price = req.params.price;
+  var item = {
+    name: name,
+    price: price
+  }
+  items.push(item);
+  res.send({
+    message:"데이트를 추가했습니다",
+    data:item
+  })
 });
+
+// 개별데이터조회
+app.get('/products/:id', (req, res) => {
+  // var id=Number(req.query.id) ;
+  console.log(id)
+  var id = Number(req.params.id);
+  if (isNaN(id)) {
+    res.send({ error: "숫자를 입력해주세요" });
+  } else if (items[id]) {
+    res.send(items[id]);
+  } else {
+    res.send({ error: "존재하지 않는 아이디입니다" });
+  }
+});
+
+
 
 
 
 // 웹 서버를 실행합니다.
-http.createServer(app).listen(52275, function() {
-    console.log("server Running at http://127.0.0.1:52275");
+http.createServer(app).listen(52275, function () {
+  console.log("server Running at http://127.0.0.1:52275");
 });
 // npm install express@3.4.7
