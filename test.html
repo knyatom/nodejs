@@ -34,16 +34,16 @@
   $('#myForm').submit(function (e) {
    var serialize = $(this).serialize();
    var serializeArray = $(this).serializeArray();
-   //$('<h1></h1>').text(serialize).appendTo('#wrap');
-   //$('<h1></h1>').text(serializeArray).appendTo('#wrap');
-   
+   $('<h1></h1>').text(serialize).appendTo('#wrap');
+   $('<h1></h1>').text(serializeArray).appendTo('#wrap');
+   console.log(serializeArray);
    var out = '';
    for (var i in serializeArray) {
     out += serializeArray[i].name + ":" + serializeArray[i].value + "<br>";
    }
-   //$('<h1></h1>').html(out).appendTo('#wrap');
+   $('<h1></h1>').html(out).appendTo('#wrap');
 
-   $('#wrap').load("<h1>"+serialize+"</h1>");
+   $('#wrap').load(out);
 
    e.preventDefault();
   });

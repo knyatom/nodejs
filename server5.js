@@ -7,6 +7,10 @@ app.use(express.static('public'));
 app.use(express.bodyParser());
 app.use(app.router);
 
+// ajax 요청시 다중서버 접속 지원
+var cors=require('cors');
+app.use(cors());
+
 app.post('/user', function (request, response) {
   var name = request.param('user_name');
   //var name =request.query.user_name;

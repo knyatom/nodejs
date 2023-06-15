@@ -32,20 +32,18 @@
  <div id="wrap"></div>
  <script>
   $('#myForm').submit(function (e) {
-   var serialize = $(this).serialize();
-   var serializeArray = $(this).serializeArray();
-   //$('<h1></h1>').text(serialize).appendTo('#wrap');
-   //$('<h1></h1>').text(serializeArray).appendTo('#wrap');
+   // 입력 양식의 value 속성을 가져옵니다.
+   var name = $('#name').val();
+   var region = $('#region').val();
+
+   // Ajax 요청을 수행합니다.
+   var url = '/parameter';
+   var data = { name: name, region: region };
    
-   var out = '';
-   for (var i in serializeArray) {
-    out += serializeArray[i].name + ":" + serializeArray[i].value + "<br>";
-   }
-   //$('<h1></h1>').html(out).appendTo('#wrap');
+   $('#wrap').load(url, data);
 
-   $('#wrap').load("<h1>"+serialize+"</h1>");
-
-   e.preventDefault();
+   // 기본 이벤트를 제거합니다.
+   event.preventDefault();
   });
  </script>
 </body>
