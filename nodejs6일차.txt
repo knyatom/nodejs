@@ -208,30 +208,51 @@ Query -> auto-commit transaction 체크해제
 
 commit;
 rollback;
-
-Command Line 에 실행하면 rollback이 
+------------------------------------------------------------
+Command Line 창 에 실행하면 rollback이 
 처리가 되지 않는다. 
 
 Workbench창과 Command Line창을 띄워놓고
 insert 문을 실행해보고, commit과 rollback을 
 테스트해보자.
+------------------------------------------------
+commit과 rollback 명령어는 워크벤치창에서
+해야합니다.
+-----------------------------------------------
+mysql.js
+
+npm install mysql
+
+Rest API
 
 
+전체조회, get
+개별조회  get
+생성 post
+수정 put, patch
+삭제
+
+http://127.0.0.1:52273/products
+
+Rest API Client
+postman 
 
 
+개별조회
+select * from products where id=8 ;
+
+select * from products where id=? , [id], ()->{} ;
+'select * from products where id='+id, ()->{} ;
 
 
+/products/5
+파라미터는 객체-> String, Number
 
+데이터 추가 insert
 
+insert into products (name, modelnumber, series) values ('김가나','9999','HTML') ;
 
-
-
-
-
-
-
-
-
+127.0.0.1:5000/products?name=김가나&modelnumber=1111&series=HTML
 
 
 
