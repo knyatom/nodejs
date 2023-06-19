@@ -96,13 +96,17 @@ app.all('/parameter',function(req, res){
  var series=req.body.series || req.query.series;
 
  var data={name,modelnumber,series };
-var sql="insert into products(name, modelnumber, series) values(?,?,?) ";
+ var sql="insert into products(name, modelnumber, series) values(?,?,?) ";
  client.query(sql,[name,modelnumber, series],function(err, result){
-  res.send(data);
+  if(result){
+    res.send(data) ;
+  }else{
+   res.send(err)
+  }
  });
 });
 
-// http://127.0.0.1:52273/parameter?name=park&modenumber=333&series=student
+// http://127.0.0.1:52273/parameter?name=이순신&modenumber=333&series=student
 
 
 
