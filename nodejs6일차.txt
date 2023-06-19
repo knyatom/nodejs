@@ -1,0 +1,105 @@
+nodejs 6일차
+
+jquery강좌->100번 게시판 참조
+
+수업자료실(교안)
+MySQL5.7버젼과 Workbench 다운받아놓기
+
+
+오전
+1) MYSQL 데이터베이스 설치
+  SQL언어 실습
+2) Nodejs 환경에서 express 서버를 이용한
+DB연동하기
+---------------------------
+오후
+Java시작
+
+-------------------
+MySQL -> Custom
+
+MySQL Server
+Connector/J
+Connector/ODBC
+MySQL Workkbench
+Sample and Example
+
+root -> 1234
+
+mySQL installer 5,6,7,8
+
+최신버전 8설치할때 권한모드 다운그레이드
+권한모드-> Use Legacy 선택
+
+username=>root
+password -> 1234
+
+port 3306
+
+시작->MySQL Command Line Client 실행
+password: 1234
+
+MySQL 언어 실습
+
+데이터베이스 보기
+show databases;
+
+mysql> 
+
+// company 데이터베이스 생성하기
+create database company;
+
+MySQL, Oracle SQL, MSSQL
+MariaDB,몽고DB
+
+데이터베이스관리프로그램
+
+데이터베이스생성
+테이블생성-> 필드가 생성
+테이블에 레코드값을 삽입
+
+대소문자구별안하지만 보통 대문자로 기입
+한다.
+문자열은 쌍따옴표가 아니가 홋따옴표
+' '
+주석 --
+
+company 데이터베이스 사용
+use company
+
+
+테이블 생성, 레코드에 값을 삽입명령어
+
+테이블 생성
+
+create table products(
+ id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+ name VARCHAR(50) NOT NULL,
+ modelnumber VARCHAR(15) NOT NULL,
+ series VARCHAR(30) NOT NULL
+);
+
+한글 지원
+create table products(
+ id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+ name VARCHAR(50) NOT NULL,
+ modelnumber VARCHAR(15) NOT NULL,
+ series VARCHAR(30) NOT NULL
+)charset = utf8;
+
+jquery강좌->100번게시판  
+
+테이블 정보보기
+describe products;
+
+
+
+
+
+
+
+
+
+
+
+
