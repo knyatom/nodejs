@@ -71,7 +71,6 @@ app.put('/products/:id', function (req, res) {
  client.query(query, [name, modelnumber, series, id], function (err, result) {
   res.send(result);
  });
-
 });
 
 // 데이터 삭제

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>상품추가</title>
+ <script src="http://code.jquery.com/jquery-latest.js"></script>
+</head>
+
+<body>
+ <div>
+  <form id="insert_form">
+   <fieldset>
+    <legend>데이터 추가</legend>
+    <table>
+     <tr>
+      <td> <label>상품명</label> </td>
+      <td> <input type="text" name="name"> </td>
+     </tr>
+     <tr>
+      <td> <label>모델 번호</label> </td>
+      <td> <input type="text" name="modelnumber"> </td>
+     </tr>
+     <tr>
+      <td> <label>시리즈</label> </td>
+      <td> <input type="text" name="series"> </td>
+     </tr>
+    </table>
+    <input type="submit" value="추가">
+   </fieldset>
+  </form>
+ </div>
+ <hr>
+ <table id="output" border="1">
+
+ </table>
+<script>
+ // 전송버튼 클릭시 데이터 추가하기
+ $('#insert_form').submit(function(e){
+  // 입력폼에 입력한 데이터 전송하기
+  var data=$(this).serialize();
+  console.log(data);
+  $.post('/products',data,function(){
+   $.getJSON('/products',function(d){
+    console.log(d);
+   });
+  });
+   e.preventDefault(); // 기본이벤트 제거
+ });
+
+</script>
+</body>
+
+</html>
