@@ -54,6 +54,8 @@ select * from products;
 
 예외처리
 -------------------
+delete from products where name == '' ;
+delete from products where name is Null;
 
 
 

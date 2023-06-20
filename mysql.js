@@ -24,7 +24,7 @@ app.use(app.router);
 app.get('/products', function (req, res) {
  var query = 'select * from products';
  client.query(query, function (err, result) {
-  console.log(result);
+//  console.log(result);
   res.send(result);
  });
 });  // get end
@@ -66,7 +66,7 @@ app.put('/products/:id', function (req, res) {
  var modelnumber = req.body.modelnumber;
  var series = req.body.series;
  var query = "update products set name=?,modelnumber=?,series=? where id=?";
- console.log(query);
+ //console.log(query);
 
  client.query(query, [name, modelnumber, series, id], function (err, result) {
   res.send(result);
@@ -94,7 +94,7 @@ app.all('/parameter',function(req, res){
  var modelnumber=req.body.modelnumber || req.query.modelnumber;
  var series=req.body.series || req.query.series;
 
- var data={name,modelnumber,series };
+ var data={name,modelnumber,series};
  var sql="insert into products(name, modelnumber, series) values(?,?,?) ";
  client.query(sql,[name,modelnumber, series],function(err, result){
   if(result){
