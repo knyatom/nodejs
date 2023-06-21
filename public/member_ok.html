@@ -12,6 +12,7 @@
 
 <body>
    <h1>회원가입 완료되었습니다.</h1>
+   <a href="update.html"> 회원정보수정</a>
    <a href="#" onclick="memberLoad()"> 회원목록보기</a>
    <a href="#" onclick="memberLoad2()"> (부트스트랩버전)</a>
    <div id="content">
@@ -20,7 +21,7 @@
 </body>
 <script>
    // 상세페이지 보기
-   $(document).on('click', 'a', function (e) {
+   $(document).on('click', '.a_id a', function (e) {
     //  e.stopPropagation();
     //  e.preventDefault();
       $('#content').empty();
@@ -31,14 +32,15 @@
          type: 'get',
          success: function (d) {
             console.log(d);
-            var out = "";
-            out += "<ul>";
-            out += `<li>id :<span> ${d[0].id} </span>`;
-            out += `<li>name : ${d[0].name} </li>`;
-            out += `<li>password : ${d[0].password} </li>`;
-            out += `<li>email : ${d[0].email} </li>`;
-            out += `<li>gender : ${d[0].gender} </li>`;
+            var out = "<div class='container mt-3'>";
+            out += "<ul class='list-group'>";
+            out += `<li class='list-group-item active'>id :<span> ${d[0].id} </span>`;
+            out += `<li class='list-group-item'>name : ${d[0].name} </li>`;
+            out += `<li class='list-group-item'>password : ${d[0].password} </li>`;
+            out += `<li class='list-group-item' >email : ${d[0].email} </li>`;
+            out += `<li class='list-group-item' >gender : ${d[0].gender} </li>`;
             out += "</ul>";
+            out+="</div>";
             $(out).appendTo('#content');
          }
       });
@@ -66,7 +68,7 @@
             var out = "";
             $(data).each((i, d) => {
                out += "<ol>";
-               out += `<li>id :<a href="#">${d.id}</a> <button id=${d.id}>삭제</button> </li>`;
+               out += `<li class='a_id'>id :<a href="#">${d.id}</a> <button id=${d.id}>삭제</button> </li>`;
                out += `<li>name : ${d.name} </li>`;
                out += `<li>password : ${d.password} </li>`;
                out += `<li>email : ${d.email} </li>`;

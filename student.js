@@ -78,7 +78,19 @@ app.post('/students', function (req, res) {
 
 // 데이터 수정
 app.put('/students/:id', function (req, res) {
+ var id=req.body.id;
+ var name=req.body.name;
+ var pw=req.body.password;
+ var gender=req.body.gender;
+ var email=req.body.email;
+ var data={  id,name,pw,gender,email }
 
+ var query = "update students set name=?,password=?,email=?, gender=? where id=?";
+ console.log(query);
+ client.query(query,[name,pw,email,gender,id],function(err,result){
+  //res.send(result);
+  res.redirect("update_ok.html");
+ })
 });
 
 // 데이터 삭제
