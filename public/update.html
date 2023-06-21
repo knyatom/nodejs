@@ -53,8 +53,9 @@
     url: '/students/id',
     type: "PUT",
     data: data,
-    success: function (result) {
+    success: function (result) {     
      detail(id);
+     $("<h1>수정이완료됨</h1>").appendTo('#content');
     }
    });
    e.preventDefault(); // 기본이벤트제거
