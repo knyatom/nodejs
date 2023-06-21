@@ -49,7 +49,6 @@ app.get('/students/:id', function (req, res) {
  client.query(sql, function (err, result) {
   res.send(result);
  });
-
 }); // 개별조회 .. 
 
 // 데이터추가
@@ -88,9 +87,9 @@ app.del('/students/:id', function (req, res) {
 
 
 // 웹서버를 실행한다.
-http.createServer(app).listen(52273, function () {
+http.createServer(app).listen(52274, function () {
  console.log("Server Running at ..");
- console.log("http://127.0.0.1:52273");
+ console.log("http://127.0.0.1:52274");
 });
 
 
