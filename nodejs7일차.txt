@@ -54,11 +54,29 @@ select * from products;
 
 예외처리
 -------------------
-delete from products where name == '' ;
+delete from products where name = '' ;
 delete from products where name is Null;
 
 
-
+data:{  name, modelnumber,series },
+data:{  
+name : name, 
+modelnumber : modelnumber,
+series:series 
+}
+------------------------------
+학생회원가입
+학생회원정보조회
+---------------------------------
+자바
+인텔리제이 설치
+이클립스
+JDK 11 설치
+----------------------------------
+데이터베이스수업
+ORACEL 설치
+----------------------------------
+ajax, axios, fetch
 
 
 

@@ -120,14 +120,15 @@
    var series=$('#series').val();
    var str='/products/'+id;
 
- // ajax를 수행한다.
+    // ajax를 수행한다.
    $.ajax({
     url:str,
     type:'put',
     dataType:'JSON',
     data:{  name, modelnumber,series },
     success:function(d,status){
-     console.log(status);
+     var req=new XMLHttpRequest();
+     console.log(req.status);
      console.log(d);
      if(d.affectedRows>0){
        $(`<h2>${id} 수정완료..</h2>`).appendTo('body');
@@ -136,8 +137,7 @@
      }
     }
    });
-
-  });
+  });  // update end
 
  </script>
 </body>

@@ -1,0 +1,144 @@
+nodejs 8일차
+
+jquery강좌->100번 게시판 참조
+
+수업자료실(교안)
+MySQL5.7버젼과 Workbench 다운받아놓기
+
+오전
+1) MYSQL 데이터베이스 설치
+  SQL언어 실습
+2) Nodejs 환경에서 express 서버를 이용한
+DB연동하기
+---------------------------
+오후 
+자바
+--------------------
+ CRUD
+학생회원가입
+1) 회원가입양식 폼
+2) 데이터베이스 생성
+DB 생성-> company
+DB 생성-> college
+
+create table students(
+ id varchar(20) not null,
+ name varchar(20) not null,
+ password varchar(20) not null,
+ email varchar(20) not null,
+ gender varchar(10) not null
+);
+
+학생회원가입
+아이디, 이름, 암호, 이메일, 성별
+
+not null 빈값허용안함
+
+서버구축 -> students.js
+
+라우터요청
+전체조회
+get  /students
+개별조회
+get /students/id
+추가
+post /students
+수정
+put /students/id
+삭제
+delete /students/id
+
+ajax요청, fetch, axios요청
+-------------------------------
+자바스크립트 -클라이언트 동작하는 언어
+자바-서버사이드 언어
+
+자바스크립트+수트-> 서버로 날아갈수 있다.
+node.js 플랫폼을 장차
+프레임워크, 별도의 언어
+
+CSS프레임워크 -> 부트스트랩
+
+-----------------------------
+CRUD
+
+데이터베이스 수업- ORACLE
+자바 -> 문법
+
+JSP-> servlet, jstl, el, MVC1, MVC2
+-> 스프링부트(자바프레임워크)
+-------------------------------------------
+POST Rest API 사용
+
+create database 데이터베이스이름
+
+show databases;
+
+use company;
+use college;
+
+show tables;
+
+desc stduents;
+
+
+회원가입양식 폼
+member.html
+member_ok.html
+
+public -> member.html
+
+ALTER TABLE students ADD CONSTRAINT stutendt_pk PRIMARY KEY (id);
+                     테이블명                       제약조건이름   
+
+
+MySQL
+create table students(
+ id varchar(20) not null,
+ name varchar(20) not null,
+ password varchar(20) not null,
+ email varchar(20) not null,
+ gender varchar(10) not null,
+ primary key(ID)
+);
+
+
+ORACLE
+create table students(
+ id varchar(20) not null primary key,
+ name varchar(20) not null,
+ password varchar(20) not null,
+ email varchar(20) not null,
+ gender varchar(10) not null
+);
+
+
+var id=$('#id').val();
+var name=$('#name').val();
+var pw=$('#pw').val();
+var email=$('#email').val();
+
+var data={
+ id:id,
+ name:name,
+ pw:pw,
+ email:email
+}
+
+$.ajax({
+  data:data
+})
+
+4 -> client 오류
+5 -> server 측 오류
+
+클라이언트(브라우져) -> express(미들웨어)  -> DB 접속
+                                    WAS(Web application Server)
+
+
+
+
+
+
+
+
