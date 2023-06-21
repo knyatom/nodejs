@@ -66,8 +66,9 @@ app.post('/students', function (req, res) {
  var sql = "insert into students (id,name,password,email,gender) values (?,?,?,?,?)";
  //var query = "insert into students (id,name,pw,email,gender) values ('" + id + "','" + name + "','" + pw + "','" + email + "', '" + gender + "')";
  client.query(sql, [id, name, pw, email, gender], function (err, result) {
-  if (err) console.log(err);
-
+console.log(err);
+  if (err) res.send(err);
+  //if (!res.status(200)) res.send(err);
   //res.send(result);
   res.redirect("member_ok.html");
 
