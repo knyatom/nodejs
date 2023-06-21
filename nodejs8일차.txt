@@ -177,6 +177,27 @@ id를 클릭할때->상세페이지
 <a href="#">${d.id}</a>
 
 
+수정페이지를 별도 만들고
+수정완료까지...
+
+
+update students set name='777',password='aaa',email='ddd@de.ent' ,gender='man' where id='666'
+
+  if (!res.status(200)) res.send(err);
+
+
+
+시험문제
+프로그래밍 언어활용 시험문제
+
+카페에 올리시면됩니다. 시험관련
+
+
+
+
+
+
+
 
 
 
