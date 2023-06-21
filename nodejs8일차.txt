@@ -135,6 +135,27 @@ $.ajax({
 클라이언트(브라우져) -> express(미들웨어)  -> DB 접속
                                     WAS(Web application Server)
 
+alter table students convert to charset utf8;
+
+회원가입완료페이지
+
+서버에서 redirect 재요청 작업
+member_ok.html
+
+redirect() 재요청
+
+member.html에 
+기본이벤트 제거 주석처리
+
+
+
+
+
+
+
+
+
+
 
 
 
