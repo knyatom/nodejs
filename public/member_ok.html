@@ -12,10 +12,25 @@
 <a href="#" onclick="memberLoad()"> 회원목록보기</a>
 <a href="#" onclick="memberLoad2()"> (부트스트랩버전)</a>
 <div id="content">
-
 </div>
+
 </body>
 <script>
+// 삭제버튼클릭해서 서버에 삭제요청하기
+$(document).on('click','button',function(e){
+ var id=e.currentTarget.id;
+ //var id=e.srcElement.id;
+ // var id=e.target.id;
+ console.log(id);
+ $.ajax({
+  url:'/students/'+id,
+  type:'delete',
+  success:function(data){
+     memberLoad();  // 전체목록보기
+  }
+ })
+});
+
  function memberLoad(){
   $('#content').empty();
   $.ajax({
@@ -25,7 +40,7 @@
     var out="";
     $(data).each((i,d)=>{
      out+="<ol>";
-     out+=`<li>id : ${d.id} </li>`;
+     out+=`<li>id : ${d.id} <button id=${d.id}>삭제</button> </li>`;
      out+=`<li>name : ${d.name} </li>`;
      out+=`<li>password : ${d.password} </li>`;
      out+=`<li>email : ${d.email} </li>`;
@@ -46,7 +61,7 @@
     var out="<div class='container'>";
     $(data).each((i,d)=>{
      out+="<ol class='list-group mt-3'>";
-     out+=`<li class='list-group-item'>id : ${d.id} </li>`;
+     out+=`<li class='list-group-item active'>id : ${d.id} </li>`;
      out+=`<li class='list-group-item'>name : ${d.name} </li>`;
      out+=`<li class='list-group-item'>password : ${d.password} </li>`;
      out+=`<li class='list-group-item'>email : ${d.email} </li>`;

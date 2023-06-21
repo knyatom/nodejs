@@ -146,8 +146,22 @@ redirect() 재요청
 
 member.html에 
 기본이벤트 제거 주석처리
+funtion memberLoad(){
+ $.ajax({ 
+  url:'/students',
+  type:'get'
+  success:function(d){
+ out
+    $(d).each();
+    $(out).appendTo('#content');
+  }
+ }
 
+}
 
+$('button').click(function(){
+  $(this).parent('ol').remove();
+});
 
 
 

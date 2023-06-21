@@ -22,12 +22,24 @@ app.use(app.router);
 // 라우터 설정
 // 전체조회
 app.get('/students', function (req, res) {
-var sql="select * from students";
-client.query(sql,function(err,result){
- res.send(result);
-});
-
+ var sql = "select * from students";
+ client.query(sql, function (err, result) {
+  res.send(result);
+ });
 });  // get end
+
+// 삭제
+app.delete('/students/:id', function (req, res) {
+
+ var id=req.params.id;
+ var sql="delete from students where id='" + id +"'" ;
+
+ client.query(sql, function(err,result){
+  res.send(result);
+ });
+
+}); // 삭제 end 
+
 
 // 개별조회
 app.get('/students/:id', function (req, res) {
