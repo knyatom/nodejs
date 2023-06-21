@@ -84,12 +84,12 @@ app.put('/students/:id', function (req, res) {
  var gender=req.body.gender;
  var email=req.body.email;
  var data={  id,name,pw,gender,email }
-
+console.log(data);
  var query = "update students set name=?,password=?,email=?, gender=? where id=?";
  console.log(query);
  client.query(query,[name,pw,email,gender,id],function(err,result){
-  //res.send(result);
-  res.redirect("update_ok.html");
+  if(err) console.log(err);
+  res.send(result);
  })
 });
 
