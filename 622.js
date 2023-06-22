@@ -2,21 +2,15 @@
 var http = require('http');
 var express = require('express');
 const cookieParser = require('cookie-parser');
-
-// 웹서버를 생성한다.
 var app = express();
 app.use(express.static('public'));  // 기본폴더지정
-// post요청시 파라미터 전달
 app.use(express.bodyParser());
 app.use(app.router);
-// Express의 미들웨어 불러오기
+
 var bodyParser = require('body-parser');
 
   // Session 미들웨어 불러오기
 var expressSession = require('express-session');
-
-// 익스프레스 객체 생성
-var app = express();
 
 // body-parser를 이용해 application/x-www-form-urlencoded 파싱
 app.use(bodyParser.urlencoded({ extended: false }))
@@ -34,9 +28,6 @@ app.use(expressSession({
  saveUninitialized:true
 }));
 
-
-// cookie-parser 설정
-app.use(cookieParser());
 
 // 라우터 설정
 app.all('/process/showCookie',function(req,res){
@@ -58,11 +49,24 @@ app.all('/process/setUserCookie',function(req,res){
  res.redirect('/process/showCookie');
 });
 
+app.get('/logout',(req,res)=>{
+ //res.clearCookie();
+ res.cookie('id','',{maxAge:0});
+
+});
+
+app.get('/login',(req,res)=>{
+ res.cookie('id',"hihihi",{maxAge:60});
+ res.cookie('pw',"1234",{maxAge:60});
+ res.redirect('/');
+});
+
+
 
 // 웹서버를 실행한다.
-http.createServer(app).listen(52273, function () {
+http.createServer(app).listen(52274, function () {
  console.log("Server Running at ..");
- console.log("http://127.0.0.1:52273");
+ console.log("http://127.0.0.1:52274");
 });
 
 

@@ -58,10 +58,8 @@ URI 매핑
 ----------------------------------
 저장-임시저장공간
 쿠키, 세션
-
-
 npm install cookie-parser
-
+npm install express-session --save
 
 
 
