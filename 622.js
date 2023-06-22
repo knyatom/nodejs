@@ -59,7 +59,7 @@ app.all('/login2',(req,res)=>{
  console.log('login2..');
  res.cookie('id',"hihihi",{maxAge:600});
  res.cookie('pw',"1234",{maxAge:600});
- //res.redirect('/');
+ res.redirect('/');
 });
 
 
