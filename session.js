@@ -78,15 +78,10 @@ app.all('/process/login',function(req, res) {
 // 로그아웃 라우팅 함수 - 로그아웃 후 세션 삭제함
 
 app.all('/process/logout', function(req, res) {
-
  console.log('/process/logout 호출됨.');
-
  console.log(req.session.user);
-
  if (req.session.user) {
-
   // 로그인된 상태
-
   console.log('로그아웃합니다.');
   req.session.destroy(function(err) {
    if (err) {throw err;}  
@@ -98,10 +93,7 @@ app.all('/process/logout', function(req, res) {
   // 로그인 안된 상태
   console.log('아직 로그인되어있지 않습니다.');
   re.redirect('/public/login2.html');
-
  }
-
- 
 
 });
 

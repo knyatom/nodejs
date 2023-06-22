@@ -60,11 +60,21 @@ URI 매핑
 쿠키, 세션
 npm install cookie-parser
 npm install express-session --save
+npm install body-parser
 
+public-> cookie.html
 
+ajax, fetch, axios의 차이점
+반환형태????
 
+정리하기 - 파포로 정리하자
 
+axios 요청 데이터 받아보기
+axios - 3part library  써드파트 라이브러리
 
+html
+
+axios.com
 
 
 

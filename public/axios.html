@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>axios 사용하기</title>
+ <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+<body>
+ <h1> axios로 요청하기</h1>
+ 
+ <script>
+
+axios({
+  method: 'get',
+  url: 'http://localhost:3000/post',
+  responseType: 'JSON'
+}).then(function (response) {
+// axios는 JSON형태으로 반환-> 객체로 변환한다.
+    console.log(JSON.parse(response.data));
+    var data=JSON.parse(response.data);
+ data.forEach(e => {
+ //document.write(element.id +'<br>');
+ const temp= document.createElement("div");
+ temp.innerHTML=`<p>${e.id} : ${e.name}</p>`
+ document.querySelector('body').append(temp);
+});
+    
+});
+
+ </script>
+</body>
+</html>
