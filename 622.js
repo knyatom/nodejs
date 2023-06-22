@@ -28,7 +28,6 @@ app.use(expressSession({
  saveUninitialized:true
 }));
 
-
 // 라우터 설정
 app.all('/process/showCookie',function(req,res){
  console.log("/process/showCookie 호출됨");
@@ -45,20 +44,22 @@ app.all('/process/setUserCookie',function(req,res){
     name: "blackpink",
     authorized:true
  }); 
-
  res.redirect('/process/showCookie');
 });
 
-app.get('/logout',(req,res)=>{
+app.all('/logout2',(req,res)=>{
  //res.clearCookie();
+ console.log('logout2..');
  res.cookie('id','',{maxAge:0});
+ res.cookie('pw','',{maxAge:0});
 
 });
 
-app.get('/login',(req,res)=>{
- res.cookie('id',"hihihi",{maxAge:60});
- res.cookie('pw',"1234",{maxAge:60});
- res.redirect('/');
+app.all('/login2',(req,res)=>{
+ console.log('login2..');
+ res.cookie('id',"hihihi",{maxAge:600});
+ res.cookie('pw',"1234",{maxAge:600});
+ //res.redirect('/');
 });
 
 
